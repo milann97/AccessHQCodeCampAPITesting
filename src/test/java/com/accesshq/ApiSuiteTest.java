@@ -7,7 +7,7 @@ import static org.hamcrest.Matchers.*;
 public class ApiSuiteTest {
     String authKey = "a961b8ec-a8f3-4f67-8189-bd66f132cc29";
     String postSearch = "https://digitalapi.auspost.com.au/postcode/search.json";
-    String postcode = "localities.locality.postcode";
+    String postcodeLoc = "localities.locality.postcode";
     @Test
     public void AusPostStatusTest() {
         given().relaxedHTTPSValidation().
@@ -29,7 +29,7 @@ public class ApiSuiteTest {
         when().
             get(postSearch).
         then().
-            assertThat().body(postcode,equalTo(2151));
+            assertThat().body(postcodeLoc,equalTo(2151));
     }
 
     @Test
@@ -41,6 +41,6 @@ public class ApiSuiteTest {
         when().
             get(postSearch).
         then().
-            assertThat().body(postcode, hasItem(2151));
+            assertThat().body(postcodeLoc, hasItem(2151));
     }
 }
